@@ -7,4 +7,3 @@ export default withNuxt({
     'vue/html-self-closing': 'off'
   }
 })
-// Your custom configs here

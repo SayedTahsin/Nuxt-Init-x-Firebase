@@ -4,6 +4,7 @@
     <div class="flex-1 pt-16">
       <NuxtPage />
     </div>
-    <FooterComponent class="fixed bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 text-center py-2" />
+    <FooterComponent
+      class="fixed bottom-0 left-0 w-full bg-gray-100 dark:bg-gray-800 text-center py-2" />
   </div>
 </template>

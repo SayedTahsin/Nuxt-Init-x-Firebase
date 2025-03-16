@@ -8,7 +8,7 @@ export const useUserStore = defineStore('user', () => {
   const { auth, provider } = useFirebase(config)
 
   const user = ref<User | null>(null)
-  const isUserFetching = ref(false)
+  const isUserFetching = ref(true)
 
   const login = async () => {
     isUserFetching.value = true
@@ -24,15 +24,22 @@ export const useUserStore = defineStore('user', () => {
   const logout = async () => {
     await signOut(auth)
     user.value = null
+    isUserFetching.value = false
   }
 
   const setUser = async (userData: User | null) => {
-    isUserFetching.value = true
     user.value = userData
     isUserFetching.value = false
   }
   const setLoading = (value: boolean) => {
     isUserFetching.value = value
   }
-  return { user, isUserFetching, login, logout, setUser, setLoading }
+  return {
+    user,
+    isUserFetching,
+    login,
+    logout,
+    setUser,
+    setLoading
+  }
 })

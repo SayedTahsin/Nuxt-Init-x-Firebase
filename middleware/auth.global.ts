@@ -14,16 +14,12 @@ export default defineNuxtRouteMiddleware((to) => {
     setLoading(true)
     if (user) {
       setUser(user)
-      setLoading(false)
       return
     } else {
       if (to.path === '/about') {
-        setUser(null)
-        setLoading(false)
         return
       }
       router.push('/login')
-      setLoading(false)
     }
   })
 })

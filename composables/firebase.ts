@@ -1,10 +1,5 @@
 import { initializeApp } from 'firebase/app'
-import {
-  browserLocalPersistence,
-  getAuth,
-  GoogleAuthProvider,
-  setPersistence
-} from 'firebase/auth'
+import { browserLocalPersistence, getAuth, GoogleAuthProvider, setPersistence } from 'firebase/auth'
 import type { RuntimeConfig } from 'nuxt/schema'
 
 export function useFirebase(config: RuntimeConfig) {
@@ -22,5 +17,8 @@ export function useFirebase(config: RuntimeConfig) {
   const provider = new GoogleAuthProvider()
 
   setPersistence(auth, browserLocalPersistence)
-  return { auth, provider }
+  return {
+    auth,
+    provider
+  }
 }
