@@ -28,6 +28,7 @@ NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
 NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
 NUXT_PUBLIC_FIREBASE_APP_ID=
 ```
+* Make sure to add your domain name to the authorized domains of your project's authentication settings in the Firebase Console. (For Production)
 
 ### 3. Install dependencies and run 
 ```bash
