@@ -3,11 +3,11 @@ import { signInWithPopup, signOut } from 'firebase/auth'
 import { useFirebase } from '~/composables/firebase'
 import type { User } from 'firebase/auth'
 
-const config = useRuntimeConfig()
-const { auth, provider } = useFirebase(config)
-
 export const useUserStore = defineStore('user', () => {
-  const user = ref<User | null>()
+  const config = useRuntimeConfig()
+  const { auth, provider } = useFirebase(config)
+
+  const user = ref<User | null>(null)
   const isUserFetching = ref(false)
 
   const login = async () => {
@@ -19,16 +19,20 @@ export const useUserStore = defineStore('user', () => {
       console.error('Login Error:', error)
     }
     isUserFetching.value = false
-    return user
   }
+
   const logout = async () => {
-    try {
-      await signOut(auth)
-      user.value = null
-      return true
-    } catch {
-      return false
-    }
+    await signOut(auth)
+    user.value = null
   }
-  return { user, isUserFetching, login, logout }
+
+  const setUser = async (userData: User | null) => {
+    isUserFetching.value = true
+    user.value = userData
+    isUserFetching.value = false
+  }
+  const setLoading = (value: boolean) => {
+    isUserFetching.value = value
+  }
+  return { user, isUserFetching, login, logout, setUser, setLoading }
 })
