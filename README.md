@@ -1,75 +1,42 @@
-# Nuxt Minimal Starter
+# Nuxt-init x FirebaseAuth
 
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+A boilerplate for starting a Nuxt 3 project with essential configurations, including:
 
-## Setup
+- Nuxt 3 with TypeScript
+- TailwindCSS for styling
+- Pinia for store management
+- Firebase Google Authentication with session management
+- Protected Routes Middleware
+- ESLint & Prettier for code formatting and linting
 
-Make sure to install dependencies:
+## Getting Started
 
+### 1. Firebase Setup
+1. Go to [Firebase Console](https://console.firebase.google.com/)
+2. Create a new Firebase project
+3. Enable **Google Authentication** in Firebase Authentication settings
+4. Get the Firebase **API credentials** from Project Settings
+
+### 2. Environment Variables
+Create a `.env` file in the root directory and add the following:
+
+```ini
+NUXT_PUBLIC_FIREBASE_API_KEY=
+NUXT_PUBLIC_FIREBASE_AUTH_DOMAIN=
+NUXT_PUBLIC_FIREBASE_PROJECT_ID=
+NUXT_PUBLIC_FIREBASE_STORAGE_BUCKET=
+NUXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=
+NUXT_PUBLIC_FIREBASE_APP_ID=
+```
+
+### 3. Install dependencies and run 
 ```bash
-# npm
 npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
-bun install
-```
-
-## Development Server
-
-Start the development server on `http://localhost:3000`:
-
-```bash
-# npm
 npm run dev
-
-# pnpm
-pnpm dev
-
-# yarn
-yarn dev
-
-# bun
-bun run dev
-```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
+npm run build // Build code for production
+npm run preview // Locally preview production build
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+
